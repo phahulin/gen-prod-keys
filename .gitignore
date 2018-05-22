@@ -1,0 +1,8 @@
+node_modules
+keystore
+
+bootnodes.txt
+parity
+parity_data
+spec.json
+node.toml
