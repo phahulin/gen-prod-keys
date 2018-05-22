@@ -133,9 +133,18 @@ createKeys(
     (err, result) => {
         if (err) throw err;
 
+        loginf('* saving miningKey:');
+        loginf('* password:', miningKey.password);
         Keythereum.saveToFile(miningKey.keyObj);
+
+        loginf('* saving votingKey:');
+        loginf('* password:', votingKey.password);
         Keythereum.saveToFile(votingKey.keyObj);
+
+        loginf('* saving payoutKey:');
+        loginf('* password:', payoutKey.password);
         Keythereum.saveToFile(payoutKey.keyObj);
+
         loginf('Done');
     }
 );
