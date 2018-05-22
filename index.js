@@ -146,7 +146,7 @@ createKeys(
         );
         fs.writeFileSync(
             `./production-keys/validator-${address}/mining-${miningKey.keyObj.address}.key`,
-            JSON.stringify(miningKey.password)
+            miningKey.password
         );
         // Keythereum.exportToFile(miningKey.keyObj);
 
@@ -160,7 +160,7 @@ createKeys(
         );
         fs.writeFileSync(
             `./production-keys/validator-${address}/voting-${votingKey.keyObj.address}.key`,
-            JSON.stringify(votingKey.password)
+            votingKey.password
         );
         // Keythereum.exportToFile(votingKey.keyObj);
 
@@ -174,7 +174,7 @@ createKeys(
         );
         fs.writeFileSync(
             `./production-keys/validator-${address}/payout-${payoutKey.keyObj.address}.key`,
-            JSON.stringify(payoutKey.password)
+            payoutKey.password
         );
         // Keythereum.exportToFile(payoutKey.keyObj);
 
