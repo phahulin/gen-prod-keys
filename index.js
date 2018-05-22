@@ -12,7 +12,7 @@ const password = process.argv[4];
 const keysManagerAddress = process.argv[5];
 const keysManagerABI = require('./KeysManager.abi.json');
 
-const GASPRICE_GWEI = 1;
+const GASPRICE_GWEI = 2;
 
 function loginf(...args) {
     console.log(new Date().toISOString(), ...args);
@@ -89,8 +89,10 @@ function createKeys(address, privateKey, keysManagerContract, miningKeyAddress, 
                     gasPrice: web3.utils.toHex(web3.utils.toWei(GASPRICE_GWEI.toString(), 'gwei')),
                     gasLimit: parseInt(gasEstimation),
                     chainId: chainId,
-                    nonce: parseInt(nonce) + 1,
+                    nonce: parseInt(nonce),
                 };
+
+                console.log('txParams:', txParams);
 
                 loginf('signing tx');
                 var tx = new EthereumTx(txParams);
