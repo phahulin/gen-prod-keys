@@ -5,7 +5,8 @@ const EthereumTx = require('ethereumjs-tx');
 const Web3 = require('web3');
 const GeneratePassword = require('password-generator');
 
-const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
+const RPC_ENDPOINT = process.env.RPC_ENDPOINT || 'http://localhost:8545';
+const web3 = new Web3(new Web3.providers.HttpProvider(RPC_ENDPOINT));
 const keysDir = process.argv[2];
 const address = process.argv[3];
 const password = process.argv[4];
@@ -137,15 +138,45 @@ createKeys(
 
         loginf('* saving miningKey:', miningKey.keyObj.address);
         loginf('* password:', miningKey.password);
-        Keythereum.exportToFile(miningKey.keyObj);
+        loginf('* json keystore:', JSON.stringify(miningKey.keyObj));
+        fs.mkdirSync(`./production-keys/validator-${address}/`);
+        fs.writeFileSync(
+            `./production-keys/validator-${address}/mining-${miningKey.keyObj.address}.json`,
+            JSON.stringify(miningKey.keyObj)
+        );
+        fs.writeFileSync(
+            `./production-keys/validator-${address}/mining-${miningKey.keyObj.address}.key`,
+            JSON.stringify(miningKey.password)
+        );
+        // Keythereum.exportToFile(miningKey.keyObj);
 
         loginf('* saving votingKey:', votingKey.keyObj.address);
         loginf('* password:', votingKey.password);
-        Keythereum.exportToFile(votingKey.keyObj);
+        loginf('* json keystore:', JSON.stringify(votingKey.keyObj));
+        fs.mkdirSync(`./production-keys/validator-${address}/`);
+        fs.writeFileSync(
+            `./production-keys/validator-${address}/voting-${votingKey.keyObj.address}.json`,
+            JSON.stringify(votingKey.keyObj)
+        );
+        fs.writeFileSync(
+            `./production-keys/validator-${address}/voting-${votingKey.keyObj.address}.key`,
+            JSON.stringify(votingKey.password)
+        );
+        // Keythereum.exportToFile(votingKey.keyObj);
 
         loginf('* saving payoutKey:', payoutKey.keyObj.address);
         loginf('* password:', payoutKey.password);
-        Keythereum.exportToFile(payoutKey.keyObj);
+        loginf('* json keystore:', JSON.stringify(payoutKey.keyObj));
+        fs.mkdirSync(`./production-keys/validator-${address}/`);
+        fs.writeFileSync(
+            `./production-keys/validator-${address}/payout-${payoutKey.keyObj.address}.json`,
+            JSON.stringify(payoutKey.keyObj)
+        );
+        fs.writeFileSync(
+            `./production-keys/validator-${address}/payout-${payoutKey.keyObj.address}.key`,
+            JSON.stringify(payoutKey.password)
+        );
+        // Keythereum.exportToFile(payoutKey.keyObj);
 
         loginf('Done');
     }

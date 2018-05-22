@@ -1,5 +1,6 @@
 node_modules
-keystore
+keystore/*
+production-keys/*
 
 bootnodes.txt
 parity
