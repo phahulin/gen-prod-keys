@@ -100,7 +100,7 @@ function createKeys(address, privateKey, keysManagerContract, miningKeyAddress, 
                 web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'), (err, txHash) => {
                     if (err) throw err;
 
-                    loginf('tx:', txHash);
+                    loginf('txHash:', txHash);
                     return callback(null, txHash);
                 });
             });
@@ -130,20 +130,20 @@ createKeys(
     miningKey.keyObj.address,
     votingKey.keyObj.address,
     payoutKey.keyObj.address,
-    (err, result) => {
+    (err, txHash) => {
         if (err) throw err;
 
-        loginf('* saving miningKey:');
+        loginf('* saving miningKey:', miningKey.keyObj.address);
         loginf('* password:', miningKey.password);
-        Keythereum.saveToFile(miningKey.keyObj);
+        Keythereum.exportToFile(miningKey.keyObj);
 
-        loginf('* saving votingKey:');
+        loginf('* saving votingKey:', votingKey.keyObj.address);
         loginf('* password:', votingKey.password);
-        Keythereum.saveToFile(votingKey.keyObj);
+        Keythereum.exportToFile(votingKey.keyObj);
 
-        loginf('* saving payoutKey:');
+        loginf('* saving payoutKey:', payoutKey.keyObj.address);
         loginf('* password:', payoutKey.password);
-        Keythereum.saveToFile(payoutKey.keyObj);
+        Keythereum.exportToFile(payoutKey.keyObj);
 
         loginf('Done');
     }
