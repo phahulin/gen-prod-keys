@@ -12,7 +12,7 @@ cd gen-prod-keys
 npm install
 ```
 
-3. place initial key's json keystore file into `keystore` folder. Filename should contain the corresponding address (e.g. `initial-key-0xd61a7010e9b40819df0045cbcd0c89c51ad18fe1.json`)
+3. place initial key's json keystore file into `keystore` folder. Filename should contain the corresponding address (e.g. `d61a7010e9b40819df0045cbcd0c89c51ad18fe1.json`)
 
 4. run the script
 ```
@@ -24,12 +24,12 @@ node index.js . <0xADDRESS> <KEYSTORE_PASSWORD> <KEYSMANAGER_CONTRACT_ADDRESS>
 
 5. generated mining, voting and payout json keystore files and their passwords will be saved in `production-keys/validator-<0xADDRESS>/` folder:
 ```
-| production-keys/
-| ---- validator-0xd61a7010e9b40819df0045cbcd0c89c51ad18fe1/
-| --------  mining-0x7b0661c73bb2b0d7fa3de65791b27ef35cfbb65e.json
-| --------  mining-0x7b0661c73bb2b0d7fa3de65791b27ef35cfbb65e.key
-| --------  voting-0x4acf7136731e0105772969d771f750749c17e0c3.json
-| --------  voting-0x4acf7136731e0105772969d771f750749c17e0c3.key
-| --------  payout-0x9101be9854eaf3f8e4ff84267b6bada712ba2b98.json
-| --------  payout-0x9101be9854eaf3f8e4ff84267b6bada712ba2b98.key
+production-keys/
+└── validator-0x485eb64c31d45fc22e4810e914a09e26ea352f84/
+    ├── mining-05644f37b1f150d971556f4adc91c6a918d8faf6.json
+    ├── mining-05644f37b1f150d971556f4adc91c6a918d8faf6.key
+    ├── payout-de9165519df2c4864a16704b3a553289da0497f9.json
+    ├── payout-de9165519df2c4864a16704b3a553289da0497f9.key
+    ├── voting-1e91ba7450cd6ab8ea76ea8b4dc8ea4a8b4657fe.json
+    └── voting-1e91ba7450cd6ab8ea76ea8b4dc8ea4a8b4657fe.key
 ```

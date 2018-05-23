@@ -146,11 +146,11 @@ createKeys(
         loginf('* password:', miningKey.password);
         loginf('* json keystore:', JSON.stringify(miningKey.keyObj));
         fs.writeFileSync(
-            `./production-keys/validator-${address}/mining-${miningKey.keyObj.address}.json`,
+            `./production-keys/validator-0x${address}/mining-${miningKey.keyObj.address}.json`,
             JSON.stringify(miningKey.keyObj)
         );
         fs.writeFileSync(
-            `./production-keys/validator-${address}/mining-${miningKey.keyObj.address}.key`,
+            `./production-keys/validator-0x${address}/mining-${miningKey.keyObj.address}.key`,
             miningKey.password
         );
         // Keythereum.exportToFile(miningKey.keyObj);
@@ -159,11 +159,11 @@ createKeys(
         loginf('* password:', votingKey.password);
         loginf('* json keystore:', JSON.stringify(votingKey.keyObj));
         fs.writeFileSync(
-            `./production-keys/validator-${address}/voting-${votingKey.keyObj.address}.json`,
+            `./production-keys/validator-0x${address}/voting-${votingKey.keyObj.address}.json`,
             JSON.stringify(votingKey.keyObj)
         );
         fs.writeFileSync(
-            `./production-keys/validator-${address}/voting-${votingKey.keyObj.address}.key`,
+            `./production-keys/validator-0x${address}/voting-${votingKey.keyObj.address}.key`,
             votingKey.password
         );
         // Keythereum.exportToFile(votingKey.keyObj);
@@ -172,11 +172,11 @@ createKeys(
         loginf('* password:', payoutKey.password);
         loginf('* json keystore:', JSON.stringify(payoutKey.keyObj));
         fs.writeFileSync(
-            `./production-keys/validator-${address}/payout-${payoutKey.keyObj.address}.json`,
+            `./production-keys/validator-0x${address}/payout-${payoutKey.keyObj.address}.json`,
             JSON.stringify(payoutKey.keyObj)
         );
         fs.writeFileSync(
-            `./production-keys/validator-${address}/payout-${payoutKey.keyObj.address}.key`,
+            `./production-keys/validator-0x${address}/payout-${payoutKey.keyObj.address}.key`,
             payoutKey.password
         );
         // Keythereum.exportToFile(payoutKey.keyObj);
