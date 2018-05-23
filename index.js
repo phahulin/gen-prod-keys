@@ -1,9 +1,11 @@
 'use strict';
 
+const fs = require('fs');
 const Keythereum = require('keythereum');
 const EthereumTx = require('ethereumjs-tx');
 const Web3 = require('web3');
 const GeneratePassword = require('password-generator');
+const mkdirp = require('mkdirp');
 
 const RPC_ENDPOINT = process.env.RPC_ENDPOINT || 'http://localhost:8545';
 const web3 = new Web3(new Web3.providers.HttpProvider(RPC_ENDPOINT));
@@ -136,10 +138,13 @@ createKeys(
     (err, txHash) => {
         if (err) throw err;
 
+        var folder = `./production-keys/validator-${address}/`;
+        loginf('Creating keys folder:', folder);
+        mkdirp(folder);
+
         loginf('* saving miningKey:', miningKey.keyObj.address);
         loginf('* password:', miningKey.password);
         loginf('* json keystore:', JSON.stringify(miningKey.keyObj));
-        fs.mkdirSync(`./production-keys/validator-${address}/`);
         fs.writeFileSync(
             `./production-keys/validator-${address}/mining-${miningKey.keyObj.address}.json`,
             JSON.stringify(miningKey.keyObj)
@@ -153,7 +158,6 @@ createKeys(
         loginf('* saving votingKey:', votingKey.keyObj.address);
         loginf('* password:', votingKey.password);
         loginf('* json keystore:', JSON.stringify(votingKey.keyObj));
-        fs.mkdirSync(`./production-keys/validator-${address}/`);
         fs.writeFileSync(
             `./production-keys/validator-${address}/voting-${votingKey.keyObj.address}.json`,
             JSON.stringify(votingKey.keyObj)
@@ -167,7 +171,6 @@ createKeys(
         loginf('* saving payoutKey:', payoutKey.keyObj.address);
         loginf('* password:', payoutKey.password);
         loginf('* json keystore:', JSON.stringify(payoutKey.keyObj));
-        fs.mkdirSync(`./production-keys/validator-${address}/`);
         fs.writeFileSync(
             `./production-keys/validator-${address}/payout-${payoutKey.keyObj.address}.json`,
             JSON.stringify(payoutKey.keyObj)
