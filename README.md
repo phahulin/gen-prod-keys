@@ -25,11 +25,11 @@ node index.js . <0xADDRESS> <KEYSTORE_PASSWORD> <KEYSMANAGER_CONTRACT_ADDRESS>
 5. generated mining, voting and payout json keystore files and their passwords will be saved in `production-keys/validator-<0xADDRESS>/` folder:
 ```
 production-keys/
-└── validator-0x485eb64c31d45fc22e4810e914a09e26ea352f84/
-    ├── mining-05644f37b1f150d971556f4adc91c6a918d8faf6.json
-    ├── mining-05644f37b1f150d971556f4adc91c6a918d8faf6.key
-    ├── payout-de9165519df2c4864a16704b3a553289da0497f9.json
-    ├── payout-de9165519df2c4864a16704b3a553289da0497f9.key
-    ├── voting-1e91ba7450cd6ab8ea76ea8b4dc8ea4a8b4657fe.json
-    └── voting-1e91ba7450cd6ab8ea76ea8b4dc8ea4a8b4657fe.key
+└── validator-0xd61a7010e9b40819df0045cbcd0c89c51ad18fe1/
+    ├── mining-0x05644f37b1f150d971556f4adc91c6a918d8faf6.json
+    ├── mining-0x05644f37b1f150d971556f4adc91c6a918d8faf6.key
+    ├── payout-0xde9165519df2c4864a16704b3a553289da0497f9.json
+    ├── payout-0xde9165519df2c4864a16704b3a553289da0497f9.key
+    ├── voting-0x1e91ba7450cd6ab8ea76ea8b4dc8ea4a8b4657fe.json
+    └── voting-0x1e91ba7450cd6ab8ea76ea8b4dc8ea4a8b4657fe.key
 ```
